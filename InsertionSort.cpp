@@ -1,18 +1,14 @@
-//
-//  main.cpp
-//  InsertionSort
-//
-//  Created by Mac Macoy on 1/10/16.
-//  Copyright © 2016 COP3530. All rights reserved.
-//
+// input: 1. N number of ints to sort
+//        2. N numbers
+// output: sorted list
 
 #include <iostream>
-#include <stdlib.h> // random number generator
-#include <time.h> // time
+#include <vector>
 using namespace std;
 
-void InsertionSort(int array[]){
-    int length = sizeof(array);
+void InsertionSort(int array[], int arraySize){
+    cout<<endl;
+    int length = arraySize;
     int i, j, temp;
     
     for(i = 1; i < length; i++){ // iterate through every space
@@ -30,24 +26,17 @@ void InsertionSort(int array[]){
 int main(int argc, const char * argv[]) {
     
     int length;
-    cout<<"How long is the array?"<<endl;
     cin>>length;
     
-    cout<<"Original Array:"<<endl;
-    
     int array[length];
-    
-    srand(time(NULL)); // generate random seed
+
     for(int i = 0; i<length; i++){
-        int number = rand()%100+1; // int between 1 and 100
+        int number;
+        cin>>number;
         array[i] = number;
-        cout<<number<<endl;
     }
-    cout<<endl;
     
-    InsertionSort(array);
-    
-    cout<<"Sorted Array:"<<endl;
+    InsertionSort(array, length);
     
     for(int i = 0; i<length; i++){
         cout<<array[i]<<endl;
